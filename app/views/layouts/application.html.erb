@@ -22,6 +22,8 @@
   <% else %>
     <%= link_to "Sign in with Facebook", "#{root_path}auth/facebook",class: 'btn btn-primary' %>
   <% end %>
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
