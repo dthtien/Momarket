@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Momarket</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<% flash.each do |key, msg| %>
+  <div class="alert alert-<%= key %>">
+  <strong><%= msg %></strong> 
+</div>
+<% end %>
+  <% if current_user%>
+    <%= image_tag current_user.avatar %>
+    <h4>Welcome <%= current_user.name %></h4>
+
+    <%= link_to "Sign out", logout_path,  method: 'delete', class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "#{root_path}auth/facebook",class: 'btn btn-primary' %>
+  <% end %>
+  <%= yield %>
+</body>
+</html>
