@@ -1,0 +1,10 @@
+<%= f.simple_fields_for :products, child_index: index do |ff| %>
+<div class="product">
+  <%= ff.input :name %>
+  <%= ff.input :price %>
+  <%= ff.input :description  %>
+
+
+  <%= ff.input :_destroy, as: :boolean %>
+</div>
+<% end %>
