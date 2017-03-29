@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+unless Category.any?
+  Category.create [ {:name => 'Toys'},
+                  {:name => "Mom's products"},
+                  {:name => 'Household'}]
+end

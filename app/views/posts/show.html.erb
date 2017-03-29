@@ -3,5 +3,6 @@
 <%= link_to "Delete this post", post_path, method: 'delete', 
 class: 'btn btn-danger',
   data: { confirm: 'Are you sure to delete this post'} %>
-
+<ul>
   <%= render @post.products %>
+</ul>

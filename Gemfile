@@ -64,3 +64,12 @@ gem 'bootstrap-sass'
 
 # Form buider
 gem 'simple_form'
+
+
+# Fixing event problems using jquery and turborlinls
+gem 'jquery-turbolinks'
+
+# Uploading Image
+gem "paperclip", "~> 5.0.0"
+# Amazon Simple Storage Service
+gem 'aws-sdk', '~> 2'

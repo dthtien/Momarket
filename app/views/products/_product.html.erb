@@ -1,5 +1,9 @@
 <ul>
-  <li>  <strong><%= product.name %></strong></li>
-  <li><%= product.description  %></li>
-  <li><%= product.price %></li>
+  <li>  
+  <h1><%= product.name %></h1>
+  <b><%= number_to_currency product.price %></b>
+  <%= simple_format product.description  %>
+  <%= image_tag product.product_image.url(:thumb) %>
+  <%= product.category.name %>
+  </li>
 </ul>

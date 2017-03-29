@@ -4,7 +4,13 @@
   <%= ff.input :price %>
   <%= ff.input :description  %>
 
-
-  <%= ff.input :_destroy, as: :boolean %>
+  <%= ff.input :product_image, as: :file %>
+  <%= ff.association :category, as: :radio_buttons,
+    checked: ff.object.category_id || Category.first.id  %>
+  <br>
+  <%= ff.input_field :_destroy, as: :hidden %>
+  <%= link_to "Remove this product", "#", id: "", class: 'btn btn-warning remove-product' %>
+  <br>
+  <br>
 </div>
 <% end %>
