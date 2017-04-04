@@ -16,9 +16,22 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
-// $(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function(){
 //   $('#add-more-product').on('ajax:success', function(event, data){
 //     $('#products').append(data);
 //     $('#add-more-product').data('params', {'index': $('.product').length });
 //   });
-// });
+  $(".hover").mouseleave(
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+  $('#search').focus(function() {
+    $(this).css("width", '500px');
+    $(".search-submit").removeClass("search-submit")
+  });
+  $('#search').blur(function() {
+    $(this).css("width", '');
+    $(".search-submit").addClass("search-submit")
+  });
+});

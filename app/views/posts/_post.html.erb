@@ -1,12 +1,42 @@
-<h3>
-  <%= link_to post.title, post %>
-</h3>
+<div class="card">
+ <div class="card-header">
   <% if post.owned_by? current_user %>
-    <span class = 'actions'>
-      <%= link_to "Edit", edit_post_path(post),
-        class: "btn btn-info" %>
-      <%= link_to "Delete", post, data: { confirm: 'Are you sure to delete this post'} , method: :delete,
-        class: 'btn btn-danger' %>
-    </span>
+    <div class="dropdown pull-right">
+      <a class="dropdown-toggle three-dots-vertical" type="button" data-toggle="dropdown"></a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to "Edit", edit_post_path(post)%>
+        </li>
+        <li>
+          <%= link_to "Delete", post, data: { confirm: 'Are you sure to delete this post'} , method: :delete %>
+        </li>
+      </ul>
+    </div>
+  <% quantity=post.products.size %>
   <% end %>
- <%= render post.products %>
+  <%= link_to post.title, post, class: "pull-left" %>
+</div>
+<div class="card-body">
+  <div class="product-image">
+    <figure class="snip1273">
+      <%= image_tag post.products.first.product_image.url(:medium), class: "img-responsive"%>
+      <figcaption>
+        <h3><%= post.products.first.name %></h3>
+        <p><%=number_to_currency post.products.first.price %></p>
+        <p><u>Click to see more post details</u></p>
+      </figcaption>
+      <%= link_to "", post %>
+    </figure>
+  </div>
+</div>
+  <div class="card-footer">
+  <%= link_to "See more", post %>
+  <ul class="product-type list-inline">
+    <% post.categories.each do |category| %>
+    <li><%= category.name %></li>
+    <% end %>
+    </ul>
+  </div>
+
+
+</div>

@@ -1,8 +1,12 @@
 <h1><%=  @post.title %></h1>
-<%= link_to "Edit this post", [:edit, @post], class: 'btn btn-success' %> 
-<%= link_to "Delete this post", post_path, method: 'delete', 
-class: 'btn btn-danger',
-  data: { confirm: 'Are you sure to delete this post'} %>
+<% if @post.owned_by? current_user %>
+  <span class = 'actions'>
+    <%= link_to "Edit", edit_post_path(@post),
+      class: "btn btn-info" %>
+    <%= link_to "Delete", @post, data: { confirm: 'Are you sure to delete this post'} , method: :delete,
+      class: 'btn btn-danger' %>
+  </span>
+<% end %>
 <ul>
   <%= render @post.products %>
 </ul>

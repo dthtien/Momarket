@@ -11,4 +11,3 @@ class Product < ApplicationRecord
      default_url: "/images/:style/missing.png"
   validates_attachment_content_type :product_image, content_type: /\Aimage\/.*\z/
 end
- 

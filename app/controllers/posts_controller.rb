@@ -4,8 +4,11 @@ class PostsController < ApplicationController
   before_action :authenticate, except: [:index, :show]
   # Get
   def index 
-    @posts = Post.all
+    @posts = Post.search(params[:search]).paginate(page: params[:page], per_page: 6)
   end
+
+  # Edited title
+  # edited
 
   #Get
   def show
